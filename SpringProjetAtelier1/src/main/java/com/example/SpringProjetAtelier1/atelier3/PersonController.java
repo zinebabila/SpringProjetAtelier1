@@ -46,4 +46,12 @@ public class PersonController {
                 .orElseThrow(() -> new RuntimeException("Person not found"));
         personRepository.delete(person);
     }
+    @GetMapping("/search")
+    public String search(@RequestParam(value = "keyword", defaultValue = "spring") String keyword,
+                         @RequestParam(value = "category", defaultValue = "programming") String category) {
+        // Votre logique de recherche ici
+        System.out.println("Recherche effectuée avec le mot-clé : " + keyword + " et la catégorie : " + category);
+
+        return "Recherche effectuée avec le mot-clé : " + keyword + " et la catégorie : " + category;
+    }
 }
